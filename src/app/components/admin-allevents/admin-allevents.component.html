@@ -1,0 +1,56 @@
+ <h2 class="text-center">All Events</h2>
+
+<table class="table table-striped text-center mt-3">
+  <thead>
+    <th>Event Id</th>
+    <th>Event Title</th>
+    <th>Event Organizer</th>
+    <th>Delete</th>
+
+  </thead>
+  <tbody>
+    @for (event of allEvents; track event?._id) {
+          <tr>
+            <td>{{ event._id }}</td>
+            <td>{{ event.title }}</td>
+            <td>{{ event.organizer }}</td>
+         <td>
+           <button class="btn btn-outline-danger"
+           [attr.data-bs-target]="'#staticBackdrop' + event._id"
+           data-bs-target="#staticBackdrop"
+            data-bs-toggle="modal"
+             data-bs-target="#exampleModal" >Delete</button>
+         </td>
+          </tr>
+
+            <div class="modal fade"
+             id="exampleModal"
+              tabindex="-1"
+              [attr.id]="'staticBackdrop' + event._id"
+               aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+              <div class="modal-dialog bg-transparent modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Event</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                   Are You Sure you want to DELETE Event <b> {{ event.title | uppercase }} ,{{event._id}}</b>
+                   ?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                    <button  type="button" class="btn btn-danger"   data-bs-dismiss="modal" (click)="deleteEvent(event._id)">Delete</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        }
+
+
+
+  </tbody>
+</table>

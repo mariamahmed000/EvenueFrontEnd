@@ -1,0 +1,99 @@
+<div class="p-5">
+  <div class="card">
+    <div class="row">
+      <div class="col-md-8 cart">
+        <div class="title">
+          <div class="row">
+            <div class="col">
+              <h4><b>Shopping Cart</b></h4>
+            </div>
+            <!-- <div class="col align-self-center text-right text-muted">3 items</div> -->
+          </div>
+        </div>
+        <div
+          class="row border-top border-bottom cartItem"
+          id="{{ event._id }}"
+          *ngFor="let event of cartInfo; let index = index"
+        >
+          <div class="row main align-items-center">
+            <div class="col-2">
+              <img class="img event-img" src="../../../assets/imgs/party.png" />
+            </div>
+            <div class="col position-relative">
+              <div class="d-flex justify-content-between">
+                <div class="row text-muted fs-3 fw-bold">{{ event.title }}</div>
+                <button
+                  [attr.data-event-id]="event.eventID"
+                  class="border-0 bg-transparent text-dark fw-bold px-4"
+                  (click)="delete($event)"
+                >
+                  x
+                </button>
+              </div>
+              <p class="col d-flex"><span></span>{{ event.location }}</p>
+
+              <div class="d-flex col-7">
+                <div
+                  class="d-flex flex-column text-center col-8"
+                  *ngFor="let detail of event.tickets"
+                >
+                  <i class="fa fa-ticket" aria-hidden="true"></i>
+                  <p class="h6">{{ detail.type }}</p>
+
+                  <div class="col">
+                    <button
+                      class="rounded-5"
+                      (click)="minus(index, detail.type)"
+                    >
+                      <b> - </b></button
+                    ><span> {{ detail.quantity }} </span
+                    ><button
+                      class="rounded-5"
+                      (click)="add(index, detail.type)"
+                    >
+                      <b>+</b>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="back-to-shop">
+          <a class="text-decoration-none" routerLink="/events"
+            ><i class="fa fa-arrow-left pe-3" aria-hidden="true"></i
+            ><span class="text-muted">Back to shop</span></a
+          >
+        </div>
+      </div>
+      <div class="col-md-4 summary">
+        <div>
+          <h5><b>Summary</b></h5>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col" style="padding-left: 0">
+            ITEMS {{ totalQuantity }}
+          </div>
+          <div class="col text-right">&euro; {{ eventPrice }}</div>
+        </div>
+        <form>
+          <p>SHIPPING</p>
+          <select>
+            <option class="text-muted">Standard-Delivery- &euro;5.00</option>
+          </select>
+          <p>GIVE CODE</p>
+          <input id="code" placeholder="Enter your code" />
+        </form>
+        <div
+          class="row"
+          style="border-top: 1px solid rgba(0, 0, 0, 0.1); padding: 2vh 0"
+        >
+          <div class="col">TOTAL PRICE</div>
+          <div class="col text-right">&euro;{{ +eventPrice + 5 }}</div>
+        </div>
+        <div id="myPaypalButtons"></div>
+      </div>
+    </div>
+  </div>
+</div>

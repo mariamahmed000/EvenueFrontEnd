@@ -1,0 +1,30 @@
+.parent {
+  margin-top: 100px;
+}
+
+.card {
+  border-radius: 15px;
+  margin-bottom: 70px;
+  /* width: 400px; */
+}
+
+.card-body {
+  min-height: 280px;
+  /* width: 400px; */
+}
+
+.card-title {
+  margin-top: 60px;
+}
+
+.card-text {
+  color: var(--gray-font);
+}
+
+.card-subtitle {
+  opacity: 0.7;
+}
+
+.fa-star {
+  color: var(--dark-purple);
+}

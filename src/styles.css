@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --main-color: #a63fdc;
+  --bg-purple: #9a24c1;
+  --pp: #8e3a9d;
+  --bg-light: #fafafa;
+  --dark-purple: #7c3488;
+  --purple-gred: #5c127e;
+  --dark-blue: #21145c;
+  --navy: #08011e;
+  --gray-font: #777777;
+  --black-font: #232127;
+}
+@font-face {
+  font-family: font;
+  src: url("assets/fonts/alfont_com_كاليبري-عريض.ttf");
+}
+
+body {
+  font-family: font;
+  /* background-color: #212529; */
+  scroll-behavior: auto;
+}
+.bg-purple-ligth {
+  background-color: var(--dark-purple);
+}
+.bg-purple {
+  background-color: var(--pp);
+}
+.btn-color {
+  background-image: linear-gradient(
+    to right,
+    #3d096e,
+    #460d75,
+    #4f117d,
+    #591484,
+    #62188b
+  );
+}
+
+/* {
+  background-color:;
+} */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  /* font-family: Roboto, "Helvetica Neue", sans-serif; */
+}

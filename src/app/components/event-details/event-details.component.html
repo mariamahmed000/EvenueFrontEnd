@@ -1,0 +1,176 @@
+<div class="event-details-page p-4">
+  <div class="row event-details p-0 py-3 px-lg-5 rounded-4 text-center text-lg-start">
+    <div
+      class="event-head d-flex justify-content-between align-items-center align-items-lg-start gap-4 flex-column flex-lg-row ">
+      <div class="event-card col-12 col-md-6 w-100 img-container rounded position-relative">
+        <img [src]="imageName" class="img-fluid rounded" alt="event image" />
+        <!-- Overlay content -->
+        <div class="date-location-organised position-absolute p-4 ps-5">
+          <h1 class="display-1  lead event-title text-start">{{ myEvent?.title }}</h1>
+          <div class="d-flex w-100 align-items-center  mt-4">
+            <i class="icons fa-solid fa-calendar-days d-flex align-items-center pe-2"></i>
+            <p class="m-0 fitst-date d-flex fs-4">{{ firstDate }}</p>
+          </div>
+          <div class="d-flex w-100 align-items-center  ">
+            <i class="icons fa-solid fa-location-dot align-items-center d-flex pe-2 text-center"></i>
+            <p class="m-0 fitst-date d-flex fs-4">{{ location }}</p>
+          </div>
+          <div class="organiser mt-4">
+            <div class="icons ticket-text fw-bold text-start">Organised by</div>
+            <div class="display-6 fw-light text-start organizer">{{ organizer }}</div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="about-and-dates">
+        <!-- Event details text section -->
+        <div class="event-description col-12 col-md-6 w-100 mt-4 ">
+          <p class=" event-subtitle fs-2 fw-bold ">About the event</p>
+          <p class=" fs-5 text-muted text-center text-lg-start">{{ description }}</p>
+        </div>
+        <div class="dates">
+          <p class=" event-subtitle fs-2 fw-bold ">Dates</p>
+          <p class="d-flex w-100 justify-content-center justify-content-lg-start">
+            <!-- display dates and times -->
+            <span *ngFor="let date of dates; let i = index" class="d-flex flex-wrap d-lg-block ">
+              <span *ngFor="let d of date.times; let j = index" class="" style="min-width: 190px">
+                <label class="radio-label d-flex mb-3">
+                  <div>
+                    <input type="radio" name="date" class="form-check-input me-3" [(ngModel)]="selectedDate"
+                      [value]="{ date: date.date, start: d.start, end: d.end }" />
+                  </div>
+                  <div class="radio-text">
+                    <div class="date fs-5 me-5 ">
+                      {{ date.date }}
+                    </div>
+                    <div class="time text-muted me-5 ">
+                      {{ d.start }} : {{ d.end }}
+                    </div>
+                  </div>
+                </label>
+              </span>
+            </span>
+          </p>
+        </div>
+        <!-- facilities -->
+        <div class="text-muted">
+          <p class=" event-subtitle fs-2 fw-bold ">Facilities</p>
+          <div class="d-flex">
+            <ul class="d-flex flex-wrap justify-content-center justify-content-lg-start w-100 p-0">
+              <span *ngFor="let f of facilities; &quot;text-center&quot;" class="ms-3">
+                <li class="pe-3 fs-5">{{ f }}</li>
+              </span>
+            </ul>
+          </div>
+        </div>
+        <!-- instructions -->
+        <div class="text-muted">
+          <p class=" event-subtitle fs-2 fw-bold ">Instructions</p>
+          <div class="d-flex">
+            <ul class=" d-flex flex-wrap w-100 p-0 justify-content-center justify-content-lg-start">
+              <span *ngFor="let ins of instructions; &quot;text-center&quot;" class="ms-3">
+                <li class="pe-3 fs-5">{{ ins }}</li>
+              </span>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <hr class="mt-5" />
+
+
+
+
+
+    <!-- buy tickets -->
+    <div class="col-12 mt-0 px-2 px-lg-5 text-start">
+      <div class="col-12 mt-4 px-2 px-lg-0 text-start">
+        <p class="text-center event-subtitle fs-2 fw-bold ">Buy Tickets</p>
+        <div class="d-flex mt-3 justify-content-center gap-4 gap-lg-0 flex-wrap">
+          <!-- regular ticket -->
+          @if (AvailableRegularTickets) {
+          <div class="regular-ticket">
+            <h5 class="ticket-title text-center fw-bold fs-5 text-muted">Regular</h5>
+
+            <div class="ticket-container">
+              <img src="assets/imgs/ticket_regular.jpg" class="card-img-top ticket-img" alt="..." />
+            </div>
+            <div class="price text-center"><span class="text-muted fw-bold">Price:</span> <span
+                class="fw-bold">{{regularPrice}}</span>$</div>
+            <div class="buttons text-center">
+              <button class="ticket-btn rounded-3 border-0" (click)="minusRegular()">
+                -
+              </button>
+              <span class="px-3 text-muted">{{ ReservedRegularTickets }}</span>
+              <button class="ticket-btn rounded-3 border-0" (click)="addRegular()">
+                +
+              </button>
+            </div>
+          </div>
+          }
+          <!-- gold ticket -->
+          @if (AvailableGoldTickets){
+          <div class="gold-ticket">
+            <h5 class="ticket-title text-center fw-bold fs-5">Gold</h5>
+
+            <div class="ticket-container">
+              <img src="assets/imgs/ticket_gold.jpg" class="card-img-top ticket-img" alt="..." />
+            </div>
+            <div class="price text-center"><span class="text-muted fw-bold">Price:</span> <span
+                class="fw-bold">{{goldPrice}}</span>$</div>
+            <div class="buttons text-center">
+              <button class="ticket-btn rounded-3 border-0" (click)="minusGold()">
+                -
+              </button>
+              <span class="px-3 text-muted">{{ ReservedGoldTickets }}</span>
+              <button class="ticket-btn rounded-3 border-0" (click)="addGold()">
+                +
+              </button>
+            </div>
+          </div>
+          }
+          <!-- vip ticket -->
+          @if (AvailableVipTickets){
+          <div class="vip-ticket">
+            <h5 class="ticket-title text-center fw-bold fs-5">VIP</h5>
+
+            <div class="ticket-container">
+              <img src="assets/imgs/ticket_vip.jpg" class="card-img-top ticket-img" alt="..." />
+            </div>
+            <div class="price text-center"><span class="text-muted fw-bold">Price:</span> <span
+                class="fw-bold">{{VipPrice}}</span>$</div>
+            <div class="buttons text-center">
+              <button class="ticket-btn rounded-3 border-0" (click)="minusVip()">
+                -
+              </button>
+              <span class="px-3 text-muted">{{ ReservedVipTickets }}</span>
+              <button class="ticket-btn rounded-3 border-0" (click)="addVip()">
+                +
+              </button>
+            </div>
+          </div>
+          }
+        </div>
+        <div class="row">
+          <div class="text-center">
+            <button class="add-tickets-to-cart btn mt-5 px-3 fs-5" [disabled]="
+                (ReservedRegularTickets === 0 &&
+                  ReservedGoldTickets === 0 &&
+                  ReservedVipTickets === 0) ||
+                !selectedDate
+              " (click)="addToCart()"
+             
+              >
+              Add Tickets To Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

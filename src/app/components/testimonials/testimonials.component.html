@@ -1,0 +1,97 @@
+<div class="parent container">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="text-center mb-4 fw-bold">What The People Thinks About Us</h2>
+    </div>
+  </div>
+  <div
+    class="row pt-5 flex-column flex-lg-row justify-content-center align-items-center"
+  >
+    <div *ngFor="let review of reviews" class="col-lg-4 col-12">
+      <div class="card border-0 shadow">
+        <div class="card-body d-flex flex-column align-items-center">
+          <div
+            class="card-img text-center position-absolute translate-middle-y"
+          >
+            <img
+              [src]="review.userId.image"
+              alt="Jane Doe"
+              class="img-fluid rounded-circle mb-3 shadow border border-4 border-light"
+              style="width: 100px; height: 100px; object-fit: cover"
+            />
+          </div>
+          <h5 class="card-title fw-bold">{{ review.userId.name }}</h5>
+
+          <p class="card-text text-center">
+            {{ review.comment }}
+          </p>
+          <div class="mt-auto">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-md-4">
+      <div class="card border-0 shadow">
+        <div class="card-body d-flex flex-column align-items-center">
+          <div
+            class="card-img text-center position-absolute translate-middle-y"
+          >
+            <img
+              src="assets/imgs/testimonials_1.jpg"
+              alt="Jane Doe"
+              class="img-fluid rounded-circle mb-3 shadow border border-4 border-light"
+              style="width: 100px; height: 100px; object-fit: cover"
+            />
+          </div>
+          <h5 class="card-title fw-bold">Koko Hamada</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Inst, ITI.</h6>
+          <p class="card-text text-center">
+            "Absolutely transformative! This website has changed my life.
+            Exceptional events and entertainment."
+          </p>
+          <div class="mt-auto">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-0 shadow">
+        <div class="card-body d-flex flex-column align-items-center">
+          <div
+            class="card-img text-center position-absolute translate-middle-y"
+          >
+            <img
+              src="assets/imgs/testimonials_1.jpg"
+              alt="Jane Doe"
+              class="img-fluid rounded-circle mb-3 shadow border border-4 border-light"
+              style="width: 100px; height: 100px; object-fit: cover"
+            />
+          </div>
+          <h5 class="card-title fw-bold">Koko Hamada</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Inst, ITI.</h6>
+          <p class="card-text text-center">
+            "Absolutely transformative! This website has changed my life.
+            Exceptional events and entertainment."
+          </p>
+          <div class="mt-auto">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>

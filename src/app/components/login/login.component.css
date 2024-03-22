@@ -1,0 +1,38 @@
+.login {
+    position: relative;
+}
+.overlay{
+    background-color: #000;
+    opacity: .5;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    box-sizing: border-box;
+}
+
+.forms{
+    /* border:1px solid #a53fdc48; */
+    /* background-color: #fafafa; */
+    /* max-width: 30rem; */
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    margin: 0px;
+}
+
+.inform{
+    border: none;
+    border-bottom: 1px solid #a53fdc48;
+    outline: none;
+
+}
+#acc{
+    width:6rem;
+    height: 6rem;
+    background:var(--dark-purple);
+}

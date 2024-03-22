@@ -1,0 +1,16 @@
+<owl-carousel-o [options]="customOptions" class="cursor-pointer">
+  <ng-container *ngFor="let event of Events">
+    <ng-template carouselSlide [id]="event._id">
+      <div
+        class="photo-container"
+        (mouseover)="isHovered[event._id] = true"
+        (mouseout)="isHovered[event._id] = false"
+        (click)="navigateEventDetails(event._id)"
+      >
+        <img class="p-1" [src]="event.image" [title]="event?.title" />
+        <div class="overlay" [ngClass]="{ show: isHovered[event._id] }"></div>
+      </div>
+      <p class="text-center">{{ event.title }}</p>
+    </ng-template>
+  </ng-container>
+</owl-carousel-o>

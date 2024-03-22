@@ -1,0 +1,210 @@
+<main class=" ">
+  <h1 class="mt-5 my-3 text-center addEvent">Add Event</h1>
+<form [formGroup]="registerForm" (ngSubmit)="submitForm(registerForm)" class="container ">
+    <label for="title"><h4>Title</h4></label>
+    <input type="text" id="title" formControlName="title" class="form-control border my-3 ">
+    <div *ngIf="registerForm.get('title') && registerForm.get('title')?.touched">
+        <p *ngIf="registerForm.get('title')?.getError('required')" class="text-danger">Event Name is Required</p>
+        <p *ngIf="registerForm.get('title')?.getError('minlength')" class="text-danger">Event Name should be at least 3 words </p>
+        <p *ngIf="registerForm.get('title')?.getError('maxlength')" class="text-danger">Event Name should be maximum 10 words</p>
+    </div>
+    <label for="location"><h4>Location</h4></label>
+    <input type="location" id="location" formControlName="location" class="form-control my-3">
+    <div *ngIf="registerForm.get('location')&& registerForm.get('location')?.touched">
+        <p *ngIf="registerForm.get('location')?.getError('required')" class="text-danger">location is Required</p>
+        <p *ngIf="emailErrorMessage" class="alert alert-danger">{{emailErrorMessage}}</p>
+    </div>
+    <label for="organizer"><h4>Organizer</h4></label>
+    <input type="organizer" id="organizer" formControlName="organizer" class="form-control my-3">
+    <div *ngIf="registerForm.get('organizer')&& registerForm.get('organizer')?.touched">
+        <p *ngIf="registerForm.get('organizer')?.getError('required')" class="text-danger">Organizer is Required</p>
+        <p *ngIf="emailErrorMessage" class="alert alert-danger">{{emailErrorMessage}}</p>
+    </div>
+
+    <label for="Description"><h4>Description</h4></label>
+    <input type="text" id="Description" formControlName="Description" class="form-control my-3">
+    <div *ngIf="registerForm.get('Description')&&registerForm.get('Description')?.touched">
+        <p *ngIf="registerForm.get('Description')?.getError('required')" class="text-danger">Description is Required</p>
+        <p *ngIf="registerForm.get('Description')?.getError('min')" class="text-danger">Minimum Description should be 16</p>
+        <p *ngIf="registerForm.get('Description')?.getError('max')" class="text-danger">Maximum Description should be 60</p>
+    </div>
+
+      <label class=" mainfntclr mt-3 mb-1">
+      <h4> Facilities</h4>
+      </label>
+      <div class="">
+        <input type="text"
+        formControlName="facilities"
+         #link class="form-control w-50 d-inline ">
+        <span class=" btn  " (click)="AddFacility()">
+          <i class="fa-solid fa-plus-circle text-success fs-4"></i>
+        </span>
+      </div>
+      <div *ngIf="this?.facilities?.length!=0">
+
+        <div  id="facilities" class="mt-3 mb-3  col-4 d-flex" *ngFor="let facility of this?.facilities ,let ind=index">
+          <input type="text" disabled  [value]="facility" class="form-control w-75 d-inline ms-2 bg-transparent border-transparent">
+          <span class="btn"(click)="removeFacility(ind)"><i class="fa-solid fa-circle-xmark text-danger fs-4"></i></span>
+
+        </div>
+      </div>
+      <div>
+    </div>
+
+      <label class=" mainfntclr mt-3 mb-1">
+       <h4>Instructions</h4>
+      </label>
+      <div>
+        <input type="text"
+        formControlName="instructions"
+         #inst class="form-control w-50 d-inline ">
+        <span class=" btn  " (click)="AddInstruction()">
+          <i class="fa-solid fa-plus-circle text-success fs-4"></i>
+        </span>
+      </div>
+      <div *ngIf="this?.instructions?.length!=0">
+        <div  id="instructions" class="mt-3 mb-3 col-4 d-flex" *ngFor="let instruction of this?.instructions ,let ind=index">
+          <input type="text" disabled  [value]="instruction" class="form-control w-75 d-inline ms-2 bg-transparent border-transparent">
+          <span class="btn "(click)="removeInstruction(ind)"><i class="fa-solid fa-circle-xmark text-danger fs-4"></i></span>
+
+        </div>
+      </div>
+      <div>
+    </div>
+
+
+
+    <div>
+      <label class="fw-bold mainfntclr mt-3" >
+        <h4>Add Event Time</h4>
+      </label>
+      <div>
+
+        <div *ngIf="this.timeRange?.length !== 0">
+        <div *ngFor="let time of timeRange; let i = index">
+          <input type="time" disabled  [value]="time.start" class="form-control w-75 d-inline ms-2">
+          <input type="time" disabled [value]="time.end" class="form-control w-75 d-inline ms-2">
+          <span class="btn mb-1"(click)="removeTimeRange(i)"><i class="fa-solid fa-circle-xmark text-danger fs-4"></i></span>
+        </div>
+        </div>
+
+        </div>
+
+        <div class="d-flex align-items-center gap-5" >
+           <div class="d-flex flex-column flex-md-row">
+              <input type="date"  #date class="form-control  d-inline ms-2">
+              <input type="time"   #start class="form-control  d-inline ms-2">
+              <input type="time"  #end class="form-control  d-inline ms-2" >
+           </div>
+
+          <div >
+            <span class=" btn  "(click)="addTimeRange()">
+              <i class="fa-solid fa-plus-circle text-success ms-2 fs-4"></i>
+            </span>
+              <span class=" btn"(click)="Add()">
+                <i class="fa-solid fa-plus-circle text-success fs-4"></i>
+              </span>
+          </div>
+        </div>
+
+
+
+    </div>
+
+
+
+      <div *ngIf="this.eventTime?.length !== 0">
+        <label class="fw-bold mainfntclr" for="event_times">Added dates</label>
+        <div id="event_times" class="mt-3  d-flex " *ngFor="let event of eventTime; let i = index">
+          <div class="d-flex justify-content-center mt-2 flex-column flex-md-row">
+            <div *ngIf="event.date" >
+             <b>&nbsp;&nbsp;Date:</b> {{ event.date }}
+            </div>
+            <div *ngFor="let time of event.times; let j = index" class="d-flex flex-column flex-md-row">
+              <div>
+                <b> &nbsp;&nbsp;Start:</b> {{ time.start }}
+              </div>
+              <div>
+                <b>&nbsp;&nbsp;End:</b> {{ time.end }}
+              </div>
+
+            </div>
+          </div>
+          <!-- XBUTTON -->
+          <div>
+            <span class="btn mb-3"(click)="removeEvent(i)"><i class="fa-solid fa-circle-xmark text-danger fs-4"></i></span>
+
+          </div>
+        </div>
+      </div>
+<!--     [selected]="ticket==this.user?.ticket" -->
+
+      <label class=" mainfntclr mt-4" for="ticket"><h4>Ticket</h4></label>
+      <select #ticketType class="text-dark form-select w-25 mb-3" (change)="toggleTicketInfo()">
+        <option disabled selected>Select Your ticket</option>
+        <option
+          *ngFor="let ticket of type"
+          [ngValue]="ticket"
+        >
+          {{ ticket }}
+        </option>
+      </select>
+      <!-- {{this.ticketType.value}} -->
+      <div *ngIf="showTicketInfo" class="mb-2">
+        <input type="number" min="1" #price class="form-control w-25 d-inline ms-2" placeholder="Price">
+        <input type="number" min="1"  #reservedTicket class="form-control w-25 d-inline ms-2" placeholder="ReservedTickets">
+        <input type="number" min="1" #totalTickets class="form-control w-25 d-inline ms-2"  placeholder="Total Tickets" >
+        <span class=" btn " (click)="AddTicket()">
+          <i class="fa-solid fa-plus-circle text-success ms-2 fs-4"></i>
+        </span>
+      </div>
+      <div *ngIf="this.tickets?.length !== 0">
+        <!-- <label class="mainfntclr mb-2" for="tickets">Tickets</label> -->
+        <div id="tickets" class=" mb-3 d-flex" *ngFor="let ticket of tickets; let i = index">
+         <div class="d-flex flex-column flex-md-row justify-content-center mt-2">
+            <div  >
+              <b>&nbsp;&nbsp; Type:</b> {{ ticket.type }}
+            </div>
+            <div >
+             <b>&nbsp;&nbsp; Price:</b> {{ ticket.price }}
+            </div>
+            <div >
+             <b>&nbsp;&nbsp; Reserved Tickets:</b> {{ ticket.reserved }}
+            </div>
+            <div >
+             <b>&nbsp;&nbsp; Total Tickets: </b>{{ ticket.totalTickets }}
+            </div>
+
+         </div>
+         <div>
+          <span class="btn "(click)="removeTicket(i)"><i class="fa-solid fa-circle-xmark text-danger fs-4"></i></span>
+        </div>
+        </div>
+      </div>
+      <label class=" mainfntclr mt-4" for="image"><h4>Event Image</h4></label>
+        <!-- <span class="text-danger">*</span>/ -->
+
+   <input
+     (change)="onImageFileSelected($event)"
+     name="image"
+      type="file"
+       id="image"
+       formControlName="image"
+        class="form-control my-3">
+   <div *ngIf="registerForm.get('image')&& registerForm.get('image')?.touched">
+       <p *ngIf="registerForm.get('image')?.getError('required')" class="text-danger">Image is Required</p>
+       <p *ngIf="registerForm.get('image')?.getError('pattern')" class="text-danger"> Image should have only jpeg, png, jpg extensions</p>
+
+   </div>
+   <div class="d-flex justify-content-center">
+
+      <button class="btn mt-5 btn-color text-white mb-5 rounded-4 px-4 py-2" type="submit" [disabled]="registerForm.invalid" >Add Event</button>
+   </div>
+    <div class="clear-both"></div>
+
+</form>
+
+
+
+
+</main>

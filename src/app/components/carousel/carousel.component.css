@@ -1,0 +1,66 @@
+.cursor-pointer {
+  cursor: pointer;
+}
+.photo-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  height: 380px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(61, 9, 110, 0.5);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.show {
+  opacity: 1;
+}
+
+.photo-container:hover .overlay {
+  opacity: 1;
+}
+
+.photo-container img {
+  transition: transform 0.3s ease;
+  width: 380px;
+  height: 380px;
+  object-fit: cover;
+}
+
+@media (max-width: 1300px) {
+  .photo-container img {
+    width: 100%;
+  }
+}
+
+.photo-container:hover img {
+  transform: scale(1.1);
+}
+
+.photo-container p {
+  position: relative;
+  z-index: 2;
+}
+
+.owl-prev,
+.owl-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.owl-prev {
+  left: -2rem;
+}
+
+.owl-next {
+  right: -2rem;
+}

@@ -1,0 +1,81 @@
+.profile-container {
+  margin: 0 auto;
+  padding: 0px;
+  border-radius: 10px;
+  max-width: 1200px;
+}
+
+.profile-header {
+  text-align: center;
+  background-color: #f9f9f9;
+  background-color: #3d096e;
+  color: white;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.user-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 5px solid #a9a9a9;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-name {
+  color: #3d096e;
+  color: white;
+}
+
+.user-name,
+.user-email {
+  margin: 10px 0;
+}
+
+.user-events ul,
+.credit-cards ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.user-events h2,
+.credit-cards h2 {
+  margin-top: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.profile-container {
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.profile-header {
+  margin-bottom: 2rem;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.review-btn {
+  background-color: #3d096e;
+  color: #fff;
+}

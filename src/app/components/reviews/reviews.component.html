@@ -1,0 +1,63 @@
+<div class="container bgcolor p-4">
+  <div class="row">
+    <p class="text-center textColor col-12 fs-1">
+      Event Feedback
+    </p>
+  </div>
+  <div class="col-12 d-flex justify-content-center mt-2">
+    <form [formGroup]="ReviewForms" (ngSubmit)="addReview(ReviewForms)">
+      <div class="d-flex flex-column col-12">
+        <div class="mb-3">
+          <label class="quest">Would you recommend a similar event to a friend?</label>
+          <div class="d-flex flex-column mt-3">
+            <div class="form-check mt-2">
+              <input type="radio" id="may1" name="fav_language" value="may1" class="form-check-input">
+              <label for="may1" class="form-check-label">Yes, definitely</label>
+            </div>
+            <div class="form-check mt-2">
+              <input type="radio" id="may2" name="fav_language" value="may2" class="form-check-input">
+              <label for="may2" class="form-check-label">Maybe, if the content was changed</label>
+            </div>
+            <div class="form-check mt-2">
+              <input type="radio" id="may3" name="fav_language" value="may3" class="form-check-input">
+              <label for="may3" class="form-check-label">Maybe, if it was cheaper</label>
+            </div>
+            <div class="form-check mt-2">
+              <input type="radio" id="may4" name="fav_language" value="may4" class="form-check-input">
+              <label for="may4" class="form-check-label">No, never</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5 mt-3">
+          <label class=" quest">Overall, were you satisfied with the venue and were you able to see and hear the presentations clearly?</label>
+          <div class="d-flex flex-column mt-3">
+            <div class="form-check">
+              <input type="radio" id="yes" name="satisfied" value="yes" class="form-check-input mt-2">
+              <label for="yes" class="form-check-label ">Yes</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="no" name="unsatisfied" value="no" class="form-check-input mt-2">
+              <label for="no" class="form-check-label">No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <label class="quest">Comments</label>
+          <textarea name="comments" formControlName="comment" id="comments" rows="3" class="form-control mt-3" placeholder="Make comments to share your feedback about the service"></textarea>
+        </div>
+
+        <div class="mb-5">
+          <label class="quest">Any suggestions for future event topics?</label>
+          <textarea name="suggestions" id="suggestions" rows="3" class="form-control mt-3" placeholder="Make suggestions for future event topics"></textarea>
+        </div>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="add-tickets-to-cart rounded-3  py-1 px-3 fs-4 " [disabled]="ReviewForms.invalid">
+          Add Review
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

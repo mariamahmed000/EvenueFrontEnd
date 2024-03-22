@@ -1,0 +1,10 @@
+/* .margin{
+  margin-top: 300px !important;
+} */
+.addEvent{
+  color:var(--dark-purple)
+  
+}
+.chart-container {
+  border: none !important; 
+}

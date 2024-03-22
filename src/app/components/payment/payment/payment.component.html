@@ -1,0 +1,85 @@
+@if (!isSubmitted) {
+<div
+  class="wrapper d-flex align-items-center justify-content-center gap-5 flex-column flex-lg-row"
+>
+  <div class="payment-card shadow-sm">
+    <!-- Payment logos -->
+    <div class="payment-logos mb-4">
+      <img src="assets/imgs/visa_logo.png" alt="Visa" class="payment-logo" />
+      <img
+        src="assets/imgs/Mastercard_Logo.png"
+        alt="MasterCard"
+        class="payment-logo"
+      />
+      <img src="assets/imgs/Paypal_log.png" alt="PayPal" class="payment-logo" />
+    </div>
+    <div class="card-title d-flex align-items-center mb-3">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+        <path
+          d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z"
+        />
+      </svg>
+      <h2 class="payment-title">Payment Info.</h2>
+    </div>
+    <form id="payment-form" (ngSubmit)="processPayment()" class="payment-form">
+      <div class="form-group mb-4">
+        <label for="cardName">Name On Card</label>
+        <input type="text" id="cardName" placeholder="Name on card" required />
+      </div>
+      <div class="form-group mb-4">
+        <label for="cardNumber">Card Number</label>
+        <input
+          type="text"
+          id="cardNumber"
+          placeholder="1234 1234 1234 1234"
+          required
+        />
+      </div>
+      <div class="form-row align-items-center gap-2">
+        <div class="form-group mb-4 expiry-date">
+          <label for="expiryMonth">Expiry Month</label>
+          <input
+            type="number"
+            max="12"
+            id="expiryMonth"
+            placeholder="MM"
+            required
+          />
+        </div>
+        <div class="form-group mb-4 expiry-date">
+          <label for="expiryYear">Expiry Year</label>
+          <input type="number" id="expiryYear" placeholder="YY" required />
+        </div>
+        <div class="form-group mb-4 cvv-field">
+          <label for="cvv">CVV</label>
+          <input type="number" id="cvv" placeholder="123" required />
+        </div>
+      </div>
+      <button type="submit" class="submit-btn btn-color fs-5 mb-3">
+        Pay Now
+      </button>
+      <div id="myPaypalButtons "></div>
+    </form>
+  </div>
+  <div class="order-details-card shadow-sm">
+    <h2 class="order-title pb-3">Order Details</h2>
+    <div class="order-items">
+      <div class="items">
+        <div class="order-item mb-3">
+          <span>Item 1 (Qty: 2):</span> <span>$200</span>
+        </div>
+        <div class="order-item mb-3">
+          <span>Item 2 (Qty: 1):</span> <span>$200</span>
+        </div>
+      </div>
+      <div class="order-total mt-auto pt-3">
+        <span>Total:</span> <span>$420</span>
+      </div>
+    </div>
+  </div>
+</div>
+} @else if (isSubmitted && isSuccess) {
+<app-payment-success></app-payment-success>
+} @else if (isSubmitted && isFail) {
+<app-payment-fail></app-payment-fail>
+}

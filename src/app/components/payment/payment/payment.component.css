@@ -1,0 +1,140 @@
+.wrapper {
+  background-color: #fff;
+  margin: 0;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.payment-card,
+.order-details-card {
+  /* margin: 0 auto; */
+  padding: 2rem;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); */
+  border-radius: 8px;
+  background-color: var(--bg-light);
+  max-width: 600px;
+  min-width: 400px;
+  min-height: 520px;
+  width: 100%;
+}
+
+.card-title svg {
+  margin-right: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  opacity: 0.6;
+}
+
+.payment-title {
+  margin: 0;
+  font-weight: 900;
+}
+
+.payment-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.payment-logo {
+  height: 40px;
+  width: auto;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.half-width {
+  width: 48%;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  /* opacity: 0.5; */
+  color: #a7a7a7;
+}
+
+input {
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid #e6e6e6;
+  outline: none;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+input:focus {
+  border-color: var(--main-color);
+}
+
+input,
+input::placeholder {
+  color: #545454;
+  font-weight: bold;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  /* background-color: #007bff; */
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+/* order details */
+/* .order-details-card { */
+/* background-color: #fff; */
+/* border: 1px solid #ccc; */
+/* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+/* border-radius: 8px; */
+/* min-width: 500px; */
+/* } */
+
+.order-title {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #eee;
+}
+
+.order-items {
+  margin-bottom: 12px;
+}
+
+.order-item,
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.order-item span,
+.order-total span {
+  display: block;
+}
+
+.order-total {
+  font-weight: bold;
+  font-size: 18px;
+  border-top: 1px solid #eee;
+  color: #757575;
+}

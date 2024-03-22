@@ -1,0 +1,58 @@
+<h2 class="text-center">All Users</h2>
+<!-- <input type="text"  class="py-2 px-3  rounded-pill input-group w-100  text-dark " placeholder="Search User?...." > -->
+
+<table class="table table-striped text-center mt-3">
+  <thead>
+    <th>User Id</th>
+    <th>User Name</th>
+    <th>Email</th>
+    <th>Delete</th>
+
+  </thead>
+  <tbody>
+    @for (user of allUsers; track user?._id) {
+
+          <tr>
+            <td>{{ user._id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+         <td>
+           <button class="btn btn-outline-danger"
+           [attr.data-bs-target]="'#staticBackdrop' + user._id"
+           data-bs-target="#staticBackdrop"
+            data-bs-toggle="modal"
+             data-bs-target="#exampleModal" >Delete</button>
+         </td>
+          </tr>
+
+            <div class="modal fade"
+             id="exampleModal"
+              tabindex="-1"
+              [attr.id]="'staticBackdrop' + user._id"
+               aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+              <div class="modal-dialog bg-transparent modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Delete User</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                   Are You Sure you want to DELETE user <b> {{ user.name | uppercase }} ,{{user._id}}</b>
+                   ?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                    <button  type="button" class="btn btn-danger"   data-bs-dismiss="modal" (click)="deleteUser(user._id)">Delete</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        }
+
+
+
+  </tbody>
+</table>

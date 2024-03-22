@@ -1,0 +1,56 @@
+<div class="homepage-next-events mb-4">
+  <div class="container">
+    <div class="row">
+      <div class="next-events-section-header">
+        <h2 class="entry-title">Our next events</h2>
+        <p>
+          Introducing our exciting lineup of upcoming events! From captivating
+          performances to enlightening workshops, our next events section offers
+          something for everyone. Dive into the world of literature with
+          thought-provoking author talks, explore new perspectives through
+          insightful panel discussions, or let your creativity flourish in
+          hands-on art classes. Whether you're a music aficionado, a budding
+          entrepreneur, or simply seeking inspiration, our diverse range of
+          events promises to ignite your passion and spark meaningful
+          connections. Stay tuned for updates on dates, times, and ticket
+          information, and get ready to embark on a journey of discovery and
+          enrichment with our next events.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div
+        class="col-12 col-md-6 col-lg-4"
+        *ngFor="let event of eventPage; let i = index"
+      >
+        <div class="next-event-wrap">
+          <figure>
+            <a (click)="Viewmore(event?._id ?? '')"
+              ><img [src]="event?.image" alt="1"
+            /></a>
+            <div class="event-rating fs-6">Exclusive</div>
+          </figure>
+          <header class="entry-header">
+            <h3 class="entry-title">{{ event?.title }}</h3>
+            <div class="posted-date">
+              <span>{{ min[i] }}</span>
+            </div>
+          </header>
+          <div class="entry-content">
+            <p class="event-desc">
+              {{ event?.Description }}
+            </p>
+          </div>
+          <footer class="entry-footer">
+            <button
+              (click)="Viewmore(event?._id ?? '')"
+              class="btn btn-secondary btnhover text-light fs-7 border-2 border-white rounded-pill px-3 py-1 mb-2"
+            >
+              Buy tickets
+            </button>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

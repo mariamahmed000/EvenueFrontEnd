@@ -1,0 +1,52 @@
+<div class="">
+  <div class="profile-container rounded-3">
+    <div class="profile-header text-center mb-2">
+      <div class="user-image mb-3">
+        <img
+          [src]="imageUrl"
+          alt="Profile Image"
+          class="profile-image rounded-circle shadow"
+        />
+      </div>
+      <h1 class="user-name display-2">{{ user?.name }}</h1>
+      <p class="user-email fs-5">{{ user?.email }}</p>
+    </div>
+    <div class="user-events">
+      <h2 class="text-center mb-4 mt-5 fs-1">My Events</h2>
+      <div class="table-responsive">
+        <table class="table align-middle table-striped">
+          <thead class="table-dark rounded">
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Location</th>
+              <th scope="col">Date</th>
+              <th scope="col">Time</th>
+              <th scope="col">Total Price</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            @for(reservation of userReservations; track reservation._id){
+
+            <tr *ngFor="let event of reservation.events; let i = index">
+              <td>{{ event.eventId.title }}</td>
+              <td>{{ event.eventId.location }}</td>
+              <td>{{ event.dateTime.day }}</td>
+              <td>{{ event.dateTime.start }} - {{ event.dateTime.end }}</td>
+              <td>${{ event.totalPrice }}</td>
+              <td>
+                <button
+                  class="btn review-btn"
+                  (click)="showEventDetails(event.eventId._id)"
+                >
+                  Add Review
+                </button>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

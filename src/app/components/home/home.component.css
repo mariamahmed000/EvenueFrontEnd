@@ -1,0 +1,31 @@
+main {
+  background-image: url("../../../assets/imgs/home.jpg");
+  /* background-size: contain; */
+  background-repeat: no-repeat;
+  background-position: 90% 40%;
+  z-index: -999;
+}
+pre {
+  line-height: 4rem;
+}
+
+.landing {
+  height: calc(100% - 115px);
+}
+
+.landing-title {
+  /* background-color: rgba(0, 0, 0, 0.1); */
+  padding: 20px;
+}
+
+.evenue-color {
+  color: #ffffff;
+}
+
+.fs-1 {
+  font-size: 2rem;
+}
+
+.fs-3 {
+  font-size: 1rem;
+}

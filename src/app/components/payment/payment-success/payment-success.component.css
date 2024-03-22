@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.success-card {
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: var(--bg-light);
+  max-width: 450px;
+  text-align: center;
+}
+
+.success-message {
+  padding: 20px;
+}
+
+.success-icon {
+  color: var(--bg-purple);
+}
+
+.text-center {
+  text-align: center;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #007bff;
+  padding: 10px 15px;
+  border-radius: 4px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+a:hover {
+  background-color: #0056b3;
+}

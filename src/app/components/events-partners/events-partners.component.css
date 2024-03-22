@@ -1,0 +1,17 @@
+.events-partners {
+  padding: 120px 0;
+
+  background: url("../../../assets/imgs/regional-events-bg.jpg") no-repeat;
+  background-size: cover;
+}
+
+.events-partners .entry-title {
+  color: #fff;
+}
+
+.events-partners-logos .event-partner-logo {
+  width: 20%;
+  min-width: 220px;
+  margin-top: 80px;
+  text-align: center;
+}

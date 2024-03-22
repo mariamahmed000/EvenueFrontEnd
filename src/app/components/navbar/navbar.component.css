@@ -1,0 +1,84 @@
+.index {
+  /* z-index: -9999; */
+}
+svg {
+  height: 375px;
+}
+
+.navbar-brand,
+.navbar-links img,
+.navbar-links h4 {
+  height: 90px;
+}
+
+.navbarColor {
+  /* background-image: linear-gradient(
+    to right top,
+    #3d096e,
+    #460d75,
+    #4f117d,
+    #591484,
+    #62188b
+  ); */
+  background-color: #3d096e;
+
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.toggle-btn {
+  background-color: #8c28b2;
+}
+
+.navbar-links li {
+  width: 20%;
+  transition: 0.5s;
+}
+
+.navbar-links li:hover {
+  background-color: #62188b;
+  color: #fafafa;
+}
+
+.cart {
+  cursor: pointer;
+}
+.nav-item .fa-shopping-cart {
+  color: white;
+  transition: 0.3s;
+  font-size: 23px;
+}
+
+.nav-item:hover .fa-shopping-cart {
+  color: #c487e5;
+}
+.login-logout-btn {
+  transition: 0.5s !important;
+}
+
+.login-logout-btn:hover {
+  background-color: #62188b !important;
+  color: #fafafa !important;
+}
+
+.profileImage {
+  width: 45px !important;
+  height: 45px !important;
+  background-color: transparent;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.nav-link.active {
+  background-color: #62188b !important;
+  color: #fafafa !important;
+  transition: 0.5s !important;
+  color: #c487e5 !important;
+}
+.badgeNumber {
+  left: 50%;
+  bottom: 68%;
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+}

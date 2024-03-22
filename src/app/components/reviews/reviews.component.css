@@ -1,0 +1,31 @@
+.bgcolor{
+  /* background-color: lightslategray;
+  box-shadow: 2px gray; */
+}
+.quest{
+  color: var(--bg-purple)  !important;
+  font-size: 25px;
+}
+body{
+  color: black;
+}
+.textColor{
+  color:#3D096E;
+}
+.add-tickets-to-cart{
+  /* border-radius: 10px;
+ 
+  outline:none */
+  /* border-color:#62188b  ; */
+  border: 1px solid #62188b;
+  outline: none;
+  background-color: white;
+  color: black;
+
+}
+.add-tickets-to-cart:hover {
+  background-color: #62188b !important;
+  color: #fafafa !important;
+  transition: 0.5s !important;
+  
+}

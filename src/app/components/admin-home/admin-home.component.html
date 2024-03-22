@@ -1,0 +1,76 @@
+<div class="  p-1">
+<div class="container">
+  <div class="row">
+    <div class="col-12 ">
+
+
+
+    </div>
+  </div>
+  <div class="row  justify-content-lg-evenly justify-content-center gap-lg-0  gap-md-3 mt-5">
+    <div class="col-md-4 col-lg-3 col-10 mb-lg-0  mb-2 d-flex flex-column justify-content-between rounded-3 bg-purple-ligth p-0">
+      <div class="small-box d-flex justify-content-md-around justify-content-between align-items-center p-sm-4 px-5 py-4 ">
+        <div class="text-white">
+          <p class="mb-0 fs-4 fw-bold">{{allReservationNum}}</p>
+          <p class="mb-0 fs-5">Total Reservations</p>
+        </div>
+        <div class="d-flex align-items-center">
+          <i class="fa-solid fa-bag-shopping display-2 opacity-25"></i>
+        </div>
+      </div>
+      <div class="bg-purple p-0 m-0 w-100 rounded-bottom-3 text-white text-center">
+     <a routerLink="/reservations"class="btn border-0 text-white" >
+      more info
+      <i class="fa-solid fa-circle-right fs-6 text-white"></i>
+     </a>
+      </div>
+    </div>
+    <div class="col-md-4 col-lg-3 col-10 d-flex flex-column justify-content-between  mb-lg-0 mb-2 rounded-3 bg-purple-ligth p-0">
+      <div class="small-box d-flex justify-content-md-around justify-content-between  align-items-center px-sm-4 px-5 py-4">
+        <div class="text-white">
+          <p class="mb-0 fs-4 fw-bold">{{allUsersNum}}</p>
+          <p class="mb-0 fs-5">Total Users</p>
+        </div>
+        <div class="d-flex align-items-center">
+          <i class="fa-solid fa-user-plus display-2 opacity-25"></i>
+        </div>
+      </div>
+      <div class="bg-purple p-0 m-0 w-100 rounded-bottom-3 text-white text-center">
+        <a routerLink="/allusers"class="btn border-0 text-white" >
+         more info
+         <i class="fa-solid fa-circle-right fs-6 text-white"></i>
+        </a>
+         </div>
+    </div>
+    <div class="col-md-4 col-lg-3 col-10 d-flex flex-column justify-content-between  col-10 mb-lg-0 mb-2 rounded-3 bg-purple-ligth p-0">
+      <div class="small-box d-flex justify-content-md-around justify-content-between align-items-center px-sm-4 px-5 py-4">
+        <div class="text-white">
+          <p class="mb-0 fs-4 fw-bold">{{allEventsNum}}</p>
+          <p class="mb-0 fs-5">Total Events</p>
+        </div>
+        <div class="d-flex align-items-center">
+          <i class="fa-solid fa-ticket-simple display-2 opacity-25"></i>
+        </div>
+      </div>
+      <div class="bg-purple p-0 m-0 w-100 rounded-bottom-3 text-white text-center">
+        <a routerLink="/adminevents"class="btn border-0 text-white" >
+         more info
+         <i class="fa-solid fa-circle-right fs-6 text-white"></i>
+        </a>
+         </div>
+    </div>
+
+
+  </div>
+</div>
+
+</div>
+<div class="d-flex justify-content-evenly p-5 mt-5">
+  <div class="w-50 ">
+    <canvas class=" w-100" id="bar">{{ chart }}</canvas>
+  </div>
+  <div class="card chart-container  flex justify-content-center w-25 " >
+    <p-chart type="pie"  [data]="data" [options]="options"></p-chart>
+  </div>
+</div>
+

@@ -1,0 +1,140 @@
+.forms {
+  /* border:1px solid #a53fdc48; */
+  /* background-color: #fafafa; */
+  /* max-width: 30rem; */
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  margin: 0px;
+}
+
+.inform {
+  border: none;
+  border-bottom: 1px solid #a53fdc48;
+  outline: none;
+}
+
+#acc {
+  width: 6rem;
+  height: 6rem;
+  background: var(--dark-purple);
+}
+
+label {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  gap: 10px;
+}
+
+#select-img {
+  border: 1px solid lightgrey;
+  padding: 10px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  color: #919191;
+  font-size: 18px;
+  width: fit-content;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex-grow: 1;
+  transition: color 0.3s ease, outline 0.3s ease;
+
+  @media (max-width: 500px) {
+    font-size: 13px;
+  }
+
+  &.empty {
+    border-color: red;
+    outline-color: red;
+  }
+
+  i.fa-image {
+    padding-right: 10px;
+    font-weight: 100;
+  }
+
+  .title {
+    display: inline-block;
+    height: fit-content;
+  }
+}
+
+#selected-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid lightgrey; */
+  height: 100px;
+  width: 100px;
+  border-radius: 5px;
+  position: relative;
+}
+
+#selected-img > i,
+#selected-img > div {
+  cursor: pointer;
+}
+
+#selected-img i.fa-camera {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  z-index: 10;
+  color: #999;
+  background-color: #f7f7f7;
+  padding: 5px;
+  border-radius: 50%;
+  /* box-shadow: abstract.$mainShadow; */
+}
+
+#selected-img > div {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+#selected-img div.inner {
+  width: 100%;
+  height: 100%;
+  border: 3px solid rgb(217 217 217);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#selected-img img {
+  width: 100%;
+  display: block;
+  object-fit: fill;
+}
+
+#selected-img span {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  justify-content: center;
+  align-items: center;
+  top: 10px;
+  left: 1px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+#selected-img span.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#selected-img span i {
+  font-size: 11px;
+  color: #fff;
+}

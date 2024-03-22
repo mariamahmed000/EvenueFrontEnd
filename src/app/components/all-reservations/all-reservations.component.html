@@ -1,0 +1,28 @@
+<h2 class="text-center">All Reservations</h2>
+<!-- <input type="text"  class="py-2 px-3  rounded-pill input-group w-100  text-dark " placeholder="Search User?...." > -->
+
+<table class="table table-striped text-center mt-3">
+  <thead>
+    <th>User Id</th>
+    <th>Event Name</th>
+    <th>Total Price</th>
+    <th>Quantity</th>
+  </thead>
+  <tbody>
+
+    @for (reservation of allReservations; track reservation?._id) {
+      @for(event of reservation.events; track event?._id){
+          <tr>
+            <td>{{ reservation.userId }}</td>
+            <td>{{ event.eventId.title }}</td>
+            <td>{{ event.totalPrice }}</td>
+            <td>{{ event.totalQuantity }}</td>
+          </tr>
+
+      }
+
+    }
+
+
+  </tbody>
+</table>
